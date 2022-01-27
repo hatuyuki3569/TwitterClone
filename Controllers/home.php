@@ -47,3 +47,4 @@ $view_tweets=[
 
 // 画面表示
 include_once '../Views/home.php';
+
