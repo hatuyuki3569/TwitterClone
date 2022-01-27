@@ -1,0 +1,417 @@
+/*
+全体
+****/
+html {
+    height: 100%;
+}
+ 
+.container {
+    display: flex;
+    justify-content: center;
+}
+ 
+.side {
+    width: 90px;
+}
+ 
+.main {
+    width: calc(100% - 90px);
+    border-left: 1px solid #eef;
+    border-right: 1px solid #eef;
+    text-align: left;
+    max-width: 600px;
+}
+ 
+@media screen and (max-width: 500px) {
+    .container {
+        padding:0;
+    }
+ 
+    .side {
+        width: 60px;
+    }
+ 
+    .main {
+        width: calc(100% - 60px);
+    }
+}
+ 
+.nav-link {
+    padding: .3rem;
+}
+ 
+.btn {
+    background-color: #1af;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+}
+ 
+.btn:hover {
+    color: #fff;
+}
+ 
+.btn-reverse {
+    background-color: #fff;
+    color: #1af;
+    border: 1px solid #1af;
+}
+ 
+.btn-reverse:hover {
+    color: #1af;
+}
+ 
+a {
+    font-size: 13px;
+    color: #1af;
+    text-decoration: none;
+}
+ 
+.text-sm {
+    font-size: 0.7rem;
+}
+ 
+/*
+サイド
+****/
+.side .side-inner {
+    position: sticky;
+    height: 100vh;
+    top: 0px;
+    padding-top: 20px;
+    text-align: center;
+}
+ 
+.side .side-inner img {
+    width: 35%;
+    margin-bottom: 15px;
+}
+ 
+.side .side-inner img.icon {
+    width: 70%;
+}
+ 
+.side .side-inner img.post-tweet {
+    width: 80%;
+}
+ 
+.side .side-inner .my-icon {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+}
+ 
+.side .side-inner .my-icon img {
+    width: 60%;
+    border-radius: 50%;
+    border: 0.2px solid #aaa;
+}
+ 
+@media screen and (max-width: 500px) {
+    .side .side-inner img {
+        width:70%;
+        margin-bottom: 15px;
+    }
+ 
+    .side .side-inner img.icon {
+        width: 85%;
+    }
+ 
+    .side .side-inner img.post-tweet {
+        width: 100%;
+    }
+ 
+    .side .side-inner .my-icon img {
+        width: 90%;
+    }
+}
+ 
+/*
+メイン
+****/
+.main .main-header {
+    padding: 20px;
+    border-bottom: 1px solid #eef;
+}
+ 
+.main .main-header h1 {
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+ 
+/*
+ホーム
+****/
+.home .tweet-post {
+    display: flex;
+    padding: 10px;
+}
+ 
+.home .tweet-post .my-icon {
+    width: 80px;
+    padding: 5px 15px 10px 10px;
+}
+ 
+.home .tweet-post .my-icon img {
+    width: 100%;
+    border-radius: 50%;
+    border: 0.2px solid #aaa;
+}
+ 
+.home .tweet-post .input-area {
+    width: calc(100% - 80px);
+    flex-grow: 1;
+}
+ 
+.home .tweet-post .input-area textarea {
+    border: 0;
+    width: 100%;
+    height: 100px;
+    resize: none;
+}
+ 
+.home .tweet-post .input-area textarea:focus {
+    outline: none;
+}
+ 
+.home .tweet-post .input-area .bottom-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-top: 1px solid #eef;
+    padding-top: 8px;
+}
+ 
+.home .ditch {
+    height: 15px;
+    background-color: #f7f8f8;
+    border-top: 1px solid #eef;
+    border-bottom: 1px solid #eef;
+}
+ 
+.home .tweet-list .tweet {
+    padding: 10px;
+    display: flex;
+    border-bottom: 1px solid #eef;
+}
+ 
+.home .tweet-list .tweet .user {
+    width: 80px;
+    padding: 5px 15px 10px 10px;
+}
+ 
+.home .tweet-list .tweet .user img {
+    width: 100%;
+    border-radius: 50%;
+    border: 0.2px solid #aaa;
+}
+ 
+.home .tweet-list .tweet .name {
+    padding-top: 5px;
+}
+ 
+.home .tweet-list .tweet .name a {
+    color: #122;
+}
+ 
+.home .tweet-list .tweet .name a .nickname {
+    color: #122;
+    font-size: 17px;
+    font-weight: bold;
+}
+ 
+.home .tweet-list .tweet .name a .user-name {
+    color: #444;
+    font-size: 14px;
+}
+ 
+.home .tweet-list .tweet .content {
+    width: calc(100% - 60px);
+}
+ 
+.home .tweet-list .tweet .content p {
+    font-size: 16px;
+    padding: 8px 0 0 0;
+    margin-bottom: 8px;
+}
+ 
+.home .tweet-list .tweet .content img.post-image {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    border: 1px solid #eef;
+}
+ 
+.home .tweet-list .tweet .content .icon-list {
+    display: flex;
+}
+ 
+.home .tweet-list .tweet .content .icon-list .like img {
+    width: 25px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+ 
+.home .tweet-list .tweet .content .icon-list .like-count {
+    width: 25px;
+    padding-top: 2px;
+    color: #444;
+}
+ 
+@media screen and (max-width: 500px) {
+    .home .tweet-list .tweet .user {
+        width:60px;
+        padding: 5px 10px 10px 5px;
+    }
+ 
+    .bottom-area .btn {
+        margin-top: 10px;
+    }
+}
+ 
+/*
+会員登録（ログイン画面共用）
+****/
+body.signup {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    height: 100%;
+}
+ 
+.signup {
+    background-color: #123;
+    color: #fff;
+}
+ 
+.signup .form-signup {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+ 
+.signup .logo-white {
+    margin-bottom: 30px;
+    width: 50px;
+}
+ 
+.signup h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+ 
+.signup input {
+    margin-bottom: 10px;
+    background-color: #123;
+    border-color: #456;
+    color: #fff;
+}
+ 
+.signup input:focus {
+    background-color: #123;
+    border-color: #1af;
+    color: #fff;
+}
+ 
+/*
+ユーザー
+****/
+.profile .profile-area {
+    padding: 25px;
+}
+ 
+.profile .profile-area .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+ 
+.profile .profile-area .top .user {
+    width: 30%;
+    padding: 5px 15px 10px 0;
+}
+ 
+.profile .profile-area .top .user img {
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid rgb(235, 238, 240);
+}
+ 
+.profile .profile-area .top button {
+    margin-bottom: 20px;
+}
+ 
+.profile .profile-area .name {
+    font-size: 18px;
+    font-weight: bold;
+}
+ 
+.profile .profile-area .follow-follower {
+    display: flex;
+    padding: 15px 0 10px 0;
+}
+ 
+.profile .profile-area .follow-follower .follow-count {
+    width: 30px;
+    font-size: 16px;
+    font-weight: bold;
+}
+ 
+.profile .profile-area .follow-follower .follow-text {
+    width: 100px;
+    font-size: 16px;
+    margin-right: 30px;
+    color: #778;
+}
+ 
+/*
+検索
+****/
+.search .search-area {
+    display: flex;
+    padding: 15px;
+}
+ 
+.search .search-area input {
+    width: 70%;
+    max-width: 300px;
+    margin-right: 10px;
+}
+ 
+/*
+通知
+****/
+.notification .notification-list .no-result {
+    padding: 20px;
+}
+ 
+.notification .notification-list .notification-item {
+    padding: 10px;
+    border-bottom: 1px solid rgb(235, 238, 240);
+}
+ 
+.notification .notification-list .notification-item .user {
+    width: 70px;
+    padding: 5px 15px 10px 10px;
+}
+ 
+.notification .notification-list .notification-item .user img {
+    width: 100%;
+    border-radius: 50%;
+    border: 1px solid rgb(235, 238, 240);
+}
+ 
+.notification .notification-list .notification-item .content {
+    width: 100%;
+}
+ 
+.notification .notification-list .notification-item .content p {
+    font-size: 16px;
+    padding: 8px 0 0 0;
+    margin-bottom: 8px;
+}
