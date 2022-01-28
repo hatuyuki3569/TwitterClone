@@ -1,14 +1,14 @@
 <?php
 /////////////////////////
-///いいね！データを処理///
+///フォローデータを処理///
 /////////////////////////
 /**
- * いいね！を作成
+ * フォローを作成
  *
  * @param array $data
  * @return int|false
  */
-function createLike(array $data)
+function createFollow(array $data)
 {
     // DB接続
     $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
@@ -18,26 +18,24 @@ function createLike(array $data)
         exit;
     }
     //------------------------------
-    //SQLクエリを作成(登録)
+    //SQLクエリを作成(新規登録)
     //------------------------------
-    $query = 'INSERT INTO likes (user_id, tweet_id) VALUES (?, ?)';
+    $query = 'INSERT INTO follows (follow_user_id, followed_user_id) VALUES (?, ?)';
     $statement = $mysqli->prepare($query);
 
     //プレースホルダに値をセット
-    $statement->bind_param('ii', $data['user_id'], $data['tweet_id']);
-    
+    $statement->bind_param('ii', $data['follow_user_id'], $data['followed_user_id']);
     //---------------------
     //戻り値を作成
     //---------------------
     //クエリを実行し、SQLエラーでない場合
     if($statement->execute()) {
+        //戻り値用の変数にセット:インサートID(follows.id)
         $response = $mysqli->insert_id;
-    }else{
-        //戻り値用の変数にセット: 失敗
+    } else {
         $response = false;
         echo 'エラーメッセージ :' . $mysqli->error . "\n";
     }
-    
     //--------------------------
     //後処理
     //--------------------------
@@ -48,13 +46,15 @@ function createLike(array $data)
     return $response;
 }
 
+
+///
 /**
- * いいね！を取り消し
+ * フォローを取り消し
  *
  * @param array $data
  * @return bool
  */
-function deleteLike(array $data)
+function deleteFollow(array $data)
 {
     // DB接続
     $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
@@ -63,16 +63,18 @@ function deleteLike(array $data)
         echo 'MySQLの接続に失敗しました。:' . $mysqli->connect_error . "\n";
         exit;
     }
+    //更新日時を追加
+    $data['updated_at'] = date('Y-m-d H:i:s');
 
     //-----------------------
     //SQLクエリを作成
     //-----------------------
     //論理削除のクエリを作成
-    $query = 'UPDATE likes SET status ="deleted" WHERE id = ? AND user_id = ?';
+    $query = 'UPDATE follows SET status = "deleted", updated_at = ? WHERE id = ? AND follow_user_id = ?';
     $statement = $mysqli->prepare($query); 
 
     //プレースホルダに値をセット
-    $statement->bind_param('ii', $data['user_id'], $data['tweet_id']);
+    $statement->bind_param('sii', $data['updated_at'], $data['follow_id'], $data['follow_user_id']);
     //---------------------
     //戻り値を作成
     //---------------------
