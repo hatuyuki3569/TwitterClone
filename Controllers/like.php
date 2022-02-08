@@ -45,7 +45,7 @@ if (isset($_POST['tweet_id'])) {
     $data_notification= [
         'received_user_id' => $tweet['user_id'],
         'sent_user_id' => $user['id'],
-        'message' => 'フォローされました。',
+        'message' => 'いいね！されました。',
     ];
 }
     createNotification($data_notification);
