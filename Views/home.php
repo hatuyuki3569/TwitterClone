@@ -15,7 +15,7 @@
             <div class="main-header">
                 <h1>ホーム</h1>
             </div>
-
+    
             <!-- つぶやき投稿エリア -->
             <div class="tweet-post">
                 <div class="my-icon">
@@ -28,7 +28,7 @@
                             <div class="mb-0">
                                 <input type="file" name="image" class="form-control form-control-sm">
                             </div>
-                            <bottom class="btn" type="submit">つぶやく</bottom>
+                            <button class="btn" type="submit">つぶやく</button>
                         </div>
                     </form>
                 </div>
