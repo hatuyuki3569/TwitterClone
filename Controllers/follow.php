@@ -36,7 +36,7 @@ if (isset($_POST['followed_user_id'])) {
     //フォロー登録
     $follow_id = createFollow($data);
 
-    $data = [
+    $data_notification = [
         'received_user_id' => $_POST['followed_user_id'],
         'sent_user_id' => $user['id'],
         'message' => 'フォローされました。',

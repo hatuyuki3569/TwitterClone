@@ -50,7 +50,6 @@ if (isset($_POST['tweet_id'])) {
 }
     createNotification($data_notification);
 }
-
  
 // ------------------------------------
 // いいね！取り消し

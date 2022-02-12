@@ -106,10 +106,6 @@ function updateUser(array $data)
     return $response;
 }
 
-
-
-
-
 /**
  * ユーザー情報取得：ログインチェック
  *
